@@ -32,4 +32,18 @@ RUN cmake -DBUILD_PYTHON=ON .. && make -j`nproc`
 
 # ========================================================
 
-WORKDIR /openpose  
+WORKDIR /openpose 
+
+ARG USER_ID=1000
+ARG GROUP_ID=1000
+
+RUN groupadd -g ${GROUP_ID} sim && \
+    useradd -m -l -u ${USER_ID} -g sim sim && \
+    echo "sim:sim" | chpasswd && adduser sim sudo && \
+    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+ENV HOME /home/sim
+ENV SIM_ROOT=$HOME
+
+USER sim
+WORKDIR $HOME
