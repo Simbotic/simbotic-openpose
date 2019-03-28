@@ -1,0 +1,24 @@
+version: "2.4"
+services:
+  simbotic-openpose:
+    tty: true
+    stdin_open: true
+    runtime: nvidia
+    container_name: simbotic-openpose
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - USER_ID
+        - GROUP_ID
+      network: host
+    image: simbotic-openpose/python3:v0.0.1
+    environment:
+      - DISPLAY
+    privileged: true
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - type: bind
+        source: /tmp/.X11-unix
+        target: /tmp/.X11-unix
