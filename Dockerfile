@@ -33,6 +33,9 @@ RUN groupadd -g ${GROUP_ID} sim && \
 ENV HOME /home/sim
 ENV SIM_ROOT=$HOME
 
+# Added to video group
+RUN usermod -a -G video sim
+
 USER sim
 
 # ======================OpenPose===========================

@@ -67,3 +67,7 @@ Now we need to enter:
 ```
 docker exec -it simbotic-openpose bash
 ```
+
+## WebCam
+
+To support webcam through the container the device must be on `/dev/video0` otherwise you must change the `devices` to point to actual webcam.
