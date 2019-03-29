@@ -34,9 +34,6 @@ ENV HOME /home/sim
 ENV SIM_ROOT=$HOME
 
 USER sim
-WORKDIR $HOME
-
-
 
 # ======================OpenPose===========================
 WORKDIR $HOME
@@ -46,12 +43,10 @@ RUN chmod -R 700 $HOME/openpose
 
 RUN mkdir -p $HOME/openpose/build
 
-RUN pwd
-RUN ls -l $HOME/openpose/
 
 WORKDIR $HOME/openpose/build
 # Building OpenPose
 # 
 RUN cmake -DBUILD_PYTHON=ON .. && make -j`nproc`
 
-# ========================================================
+WORKDIR $HOME/openpose

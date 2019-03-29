@@ -6,3 +6,7 @@
 } > .env
 
 echo "environment file created!"
+
+mkdir -p videos && mkdir -p data
+
+echo "Directories for videos and data created"
