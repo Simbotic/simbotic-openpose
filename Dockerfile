@@ -8,7 +8,7 @@ ENV LANG C.UTF-8
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     python3.7-dev python3-pip git g++ wget make libprotobuf-dev protobuf-compiler libopencv-dev \
-    libgoogle-glog-dev libboost-all-dev libcaffe-cuda-dev libhdf5-dev libatlas-base-dev liblapacke-dev
+    libgoogle-glog-dev libboost-all-dev libcaffe-cuda-dev libhdf5-dev libatlas-base-dev liblapacke-dev nano
 
 # Numpy stack and opencv for python
 RUN pip3 install numpy opencv-python
@@ -40,16 +40,20 @@ USER sim
 
 # ======================OpenPose===========================
 WORKDIR $HOME
-RUN git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose.git
+# RUN git clone --recurse-submodules https://github.com/kevinrev26/openpose.git
+# COPY openpose openpose
 
-RUN chmod -R 700 $HOME/openpose
+# # RUN chmod -R 700 $HOME/openpose
 
-RUN mkdir -p $HOME/openpose/build
+# # RUN mkdir -p $HOME/openpose/build
 
 
-WORKDIR $HOME/openpose/build
-# Building OpenPose
-# 
-RUN cmake -DBUILD_PYTHON=ON .. && make -j`nproc`
+# WORKDIR $HOME/openpose/build
+# USER root
+# RUN chmod -R 777 $HOME/openpose
+# USER sim
+# # Building OpenPose
+# # 
+# RUN cmake -DBUILD_PYTHON=ON .. && make -j`nproc`
 
 WORKDIR $HOME/openpose
