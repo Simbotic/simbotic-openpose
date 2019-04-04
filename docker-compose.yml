@@ -12,6 +12,7 @@ services:
         - USER_ID
         - GROUP_ID
       network: host
+    network_mode: host
     devices:
       - "/dev/video0:/dev/video0"
     image: simbotic-openpose/python3:v0.0.1
