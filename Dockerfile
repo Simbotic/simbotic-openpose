@@ -63,6 +63,9 @@ WORKDIR $HOME
 
 # # RUN mkdir -p $HOME/openpose/build
 
+# ============
+# Friendly reminder: Maybe we need to build osckpack before
+# ============
 
 # WORKDIR $HOME/openpose/build
 # USER root
