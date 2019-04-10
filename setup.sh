@@ -7,6 +7,6 @@
 
 echo "environment file created!"
 
-mkdir -p videos && mkdir -p data
+mkdir -p videos && mkdir -p data && mkdir -p playground
 
 echo "Directories for videos and data created"
