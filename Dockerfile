@@ -64,7 +64,9 @@ WORKDIR $HOME
 # # RUN mkdir -p $HOME/openpose/build
 
 # ============
-# Friendly reminder: Maybe we need to build osckpack before
+# Friendly reminder: We must compile oscpack library
+# cmake -G "Unix Makefiles"
+# make
 # ============
 
 # WORKDIR $HOME/openpose/build
