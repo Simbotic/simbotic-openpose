@@ -4,6 +4,15 @@ This is a Docker container running openpose.
 
 OpenPose represents the first real-time multi-person system to jointly detect human body, hand, facial, and foot keypoints (in total 135 keypoints) on single images.
 
+<p align="center">
+    <img src="docs/so.gif", width="480">
+</p>
+
+<p align="center">
+    <img src="docs/keypoints.gif", width="480">
+</p>
+
+
 # Prerequisites
 
 - Docker CE 18.x
